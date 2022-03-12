@@ -1,8 +1,10 @@
 package first_try.server.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
@@ -14,7 +16,8 @@ public class Vacancy extends BaseEntity {
   @Column(name = "name")
   private String name;
 
-  @OneToMany(mappedBy = "vacancy")
+  @JsonIgnore
+  @OneToMany(mappedBy = "vacancy", fetch = FetchType.LAZY)
   private List<Candidate> candidates;
 
   @OneToMany(mappedBy = "vacancy")

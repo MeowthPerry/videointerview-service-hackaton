@@ -1,5 +1,6 @@
 package first_try.server.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -14,6 +15,7 @@ public class Question extends BaseEntity {
   @Column(name = "data")
   private String content;
 
+  @JsonIgnore
   @ManyToOne
   @JoinColumn(name = "vacancy_id", nullable = false)
   private Vacancy vacancy;

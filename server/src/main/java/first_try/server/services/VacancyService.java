@@ -13,4 +13,12 @@ public class VacancyService {
   public List<Vacancy> getAll() {
     return vacancyRepository.findAll();
   }
+
+  public Vacancy findById(Long id) {
+    return vacancyRepository.getById(id);
+  }
+
+  public void save(Vacancy vacancy) {
+    vacancyRepository.save(vacancy);
+  }
 }

@@ -2,6 +2,7 @@ package first_try.server.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,6 +16,6 @@ public class Candidate extends BaseEntity {
   private String name;
 
   @ManyToOne
-  @JoinColumn(name = "vacancy_id", nullable = false)
+  @JoinColumn(name = "vacancy_id")
   private Vacancy vacancy;
 }

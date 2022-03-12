@@ -22,11 +22,14 @@ navigator.mediaDevices.getUserMedia({ audio: true, video: true})
             reader.readAsDataURL(videoBlob);
             // console.log(mediaRecorder.mimeType)
             reader.onloadend = function () {
-                videoData = reader.result;
-                fetch('/api/candidate/save', {
+                let videoData = reader.result;
+                fetch('http://127.0.0.1:8080/api/candidate/save', {
                     method: 'post',
                     body: videoData
-                });
+                })
+                .catch(function (error) {
+                    console.log('error', error)
+                })
             }
         });
         document.querySelector('#stop').addEventListener('click', function(){
