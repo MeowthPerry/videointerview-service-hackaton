@@ -1,6 +1,5 @@
 navigator.mediaDevices.getUserMedia({ audio: true, video: true})
     .then(stream => {
-
         var options;
         if (MediaRecorder.isTypeSupported('video/webm;codecs=vp9')) {
             options = {mimeType: 'video/webm; codecs=vp9'};
@@ -23,8 +22,11 @@ navigator.mediaDevices.getUserMedia({ audio: true, video: true})
             reader.readAsDataURL(videoBlob);
             // console.log(mediaRecorder.mimeType)
             reader.onloadend = function () {
-                var base64String = reader.result;
-                console.log('Base64 String - ', base64String);
+                videoData = reader.result;
+                fetch('/api/candidate/save', {
+                    method: 'post',
+                    body: videoData
+                });
             }
         });
         document.querySelector('#stop').addEventListener('click', function(){

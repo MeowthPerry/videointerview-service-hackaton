@@ -1,14 +1,11 @@
-const questions = [
-    'Сколько вам лет?',
-    'Как вас зовут?',
-    'какую вы хотите зарплату?',
-    'Расскажите про ваш опыт работы',
-    'Что вы думаете о компьютерах?',
-    'Вам нравится зеленый цвет?',
-    'Сколько лет вы занимаетесь разработкой? (включая обучение)',
-    'Какие проекты вы реализовали?',
-    'Чай или кофе?'
-];
+import {responseData} from './data.js';
+
+const questions = responseData.questions;
+const userName = responseData.name;
+const vacancyName = responseData.vacancy;
+
+document.querySelector('.header__user-name').textContent = userName;
+document.querySelector('.vacancy-name_span').textContent = vacancyName;
 
 const questionList = document.querySelector('.interview-content-questions');
 const nextButton = document.querySelector('#next');

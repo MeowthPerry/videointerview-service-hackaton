@@ -11,11 +11,28 @@ var json = function (response) {
 var promise = fetch('http://127.0.0.1:8080/api/candidate/1', {
     method: 'get'
 })
-    .then(status)
-    .then(json)
-    .catch(function (error) {
-        console.log('error', error)
-    })
+.then(status)
+.then(json)
+.catch(function (error) {
+    console.log('error', error)
+})
 
-promise.then((data) => console.log(data.name))
+// const responseData = promise.then((data) => {return data});
 
+const responseData = {
+    name: 'Имя Из Ответа',
+    vacancy: 'Senior HTML language programmer',
+    questions: [
+        'Сколько вам лет?',
+        'Как вас зовут?',
+        'какую вы хотите зарплату?',
+        'Расскажите про ваш опыт работы',
+        'Что вы думаете о компьютерах?',
+        'Вам нравится зеленый цвет?',
+        'Сколько лет вы занимаетесь разработкой? (включая обучение)',
+        'Какие проекты вы реализовали?',
+        'Чай или кофе?'
+    ]
+};
+
+export { responseData };
