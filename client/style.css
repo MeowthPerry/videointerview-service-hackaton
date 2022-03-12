@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+}
+
+header{
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px black;
+}
+
+.header__logo{
+    width: 130px;
+}
+
+.header__user-name {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.vacancy-name_span{
+    font-weight: normal;
+
+    font-size: inherit;
+}
+
+.vacancy-name{
+    font-size: 32px;
+}
+
+main{
+    margin: auto;
+    max-width: 1000px;
+    padding: 50px;
+}
+
+.interview-content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.interview-content-video{
+    width: 70%;
+    height: 320px;
+}
+
+.interview-content-questions{
+    width: 30%;
+    text-align: center;
+    border-style: ridge;
+    border-width: 1px;
+    height: 395px;
+    overflow-y: scroll;
+}
+
+.video_button{
+    z-index: 123;
+    background-color: rgba(0, 0, 0, 0.47);
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+.questions-text{
+    margin: 20px;
+    color: rgba(0, 0, 0, 0.6);
+    transition: 0.5s;
+}
+
+.active{
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.interview-content_next-button{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 50px;
+}
+
+.section_underline{
+    border-bottom: solid 1px black;
+}
+
+.section__h1{
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+table{
+    width: 100%;
+}
+
+th{
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+}
+
+input, select{
+    max-width: 340px;
+    padding: 10px;
+    background-color: white;
+    font-size: 24px;
+    border-color: black;
+    margin: 20px;
+}
+
+select{
+    width: 266px;
+}
+
+.addUser_button, .addCompany_button, .loginSubmit{
+    background-color: black;
+    color: white;
+    width: 266px;
+}
+
+.style1{
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    padding: 10px 96px;
+    font-size: 24px;
+    margin: 20px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.style2 {
+    background-color: white;
+    color: rgb(255, 0, 0);
+    border: 3px solid rgb(255, 0, 0);
+    padding: 10px 86px;
+    font-size: 24px;
+    margin: 20px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.style1:hover, .style2:hover{
+    background-color: rgb(207, 207, 207);
+}
+
+.login{
+    max-width: 650px;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.loginImg{
+    max-width: 340px;
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.continer_helper_block{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+.findBox input{
+    margin-left: 5px;
+    width:100%;
+}
+
+.findBox {
+    width: 100%;
+}
+
+form label{
+    border: dashed 3px black;
+    padding: 10px;
+    margin: 5px;
+}
+
+form .selected {
+    border: dashed 3px blue;
+    padding: 10px;
+    margin: 5px;
+}

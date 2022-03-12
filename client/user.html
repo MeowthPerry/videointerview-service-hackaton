@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интервью</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./webcam.min.js"></script>
+    <script src="./data.js"></script>
+    <script src="./questions.js" defer></script>
+    <script src="./videoRecorder.js" defer></script>
+</head>
+<body>
+    <div class="holder">
+        <header>
+            <img src="logo.png" alt="login img" class="header__logo">
+            <p class="header__user-name">
+                Фамилия Имя
+            </p>
+        </header>
+        <main>
+            <h2 class="vacancy-name">
+                <span class="vacancy-name_span">Вакансия:</span> Супер  мега художник
+            </h2>
+            <div class="interview-content">
+                <div id="my_camera" class="video_parent"></div>
+
+                <script>
+                    Webcam.set({
+                        width: 700,
+                        height: 395,
+                        image_format: 'jpeg',
+                        jpeg_quality: 90
+                    });
+                    Webcam.attach('#my_camera');
+                </script>
+
+                <section class="interview-content-questions">
+                </section>
+            </div>
+            <button class="interview-content_next-button" id="start">Начать интервью.</button>
+            <button class="interview-content_next-button hidden" id="next">Следующий вопрос</button>
+            <button class="interview-content_next-button hidden" id="stop">Остановить запись</button>
+        </main>
+
+
+        <template id="question-template">
+            <p class="questions-text">
+            </p>
+        </template>
+    </div>
+</body>
+</html>
