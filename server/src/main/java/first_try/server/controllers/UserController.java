@@ -1,6 +1,8 @@
 package first_try.server.controllers;
 
-import first_try.server.services.CandidateService;
+import first_try.server.entities.Question;
+import first_try.server.entities.User;
+import first_try.server.services.UserService;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -17,20 +19,19 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/candidate/")
-public class CandidateController {
-  @Autowired private CandidateService candidateService;
-  @Autowired private ServletContext servletContext;
+@RequestMapping("/api/user/")
+public class UserController {
+  @Autowired private UserService userService;
 
   @GetMapping("{id}")
   public ResponseEntity<Map<Object, Object>> getCandidateInfo(
       @PathVariable Long id, HttpServletResponse response) {
     response.addHeader("Access-Control-Allow-Origin", "*");
     Map<Object, Object> map = new HashMap<>();
-    Candidate candidate = candidateService.getById(id);
-    map.put("name", candidate.getName());
-    map.put("vacancy", candidate.getVacancy().getName());
-    map.put("questions", candidate.getVacancy().getQuestions().stream().map(question -> {return question.getContent();}).collect(
+    User user = userService.getById(id);
+    map.put("name", user.getUsername());
+    map.put("vacancy", user.getVacancy().getName());
+    map.put("questions", user.getVacancy().getQuestions().stream().map(Question::getContent).collect(
         Collectors.toList()));
     return ResponseEntity.ok(map);
   }
