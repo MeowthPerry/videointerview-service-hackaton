@@ -1,14 +1,24 @@
-var status = function (response) {
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+const uid = getUrlVars().id;
+
+const status = function (response) {
     if (response.status !== 200) {
         return Promise.reject(new Error(response.statusText));
     }
     return Promise.resolve(response);
 }
-var json = function (response) {
+const json = function (response) {
     return response.json();
 }
 
-var promise = fetch('http://127.0.0.1:8080/api/candidate/1', {
+var promise = fetch('http://127.0.0.1:8080/api/user/' + uid, {
     method: 'get'
 })
 .then(status)
@@ -19,4 +29,4 @@ var promise = fetch('http://127.0.0.1:8080/api/candidate/1', {
 
 const responseData = promise.then((data) => {return data});
 
-export { responseData };
+export { responseData, uid };

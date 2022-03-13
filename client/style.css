@@ -127,6 +127,16 @@ select{
     background-color: black;
     color: white;
     width: 266px;
+    text-decoration: none;
+}
+
+.a_text{
+    margin: 15px;
+
+}
+
+.loginSubmit{
+    text-align: center;
 }
 
 .style1{

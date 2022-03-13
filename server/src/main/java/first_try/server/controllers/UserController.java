@@ -9,7 +9,6 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -37,14 +36,17 @@ public class UserController {
   }
 
   @PostMapping("/{id}/save")
-  public void saveAnswers(@RequestBody String request, HttpServletResponse response) throws IOException {
+  public void saveAnswers(@PathVariable Long id, @RequestBody String request, HttpServletResponse response) throws IOException {
     log.info("saving video");
     response.addHeader("Access-Control-Allow-Origin", "*");
     request = request.substring(37);
     log.info(request);
     byte[] data = Base64.decodeBase64(request);
-    try (OutputStream stream = new FileOutputStream("C:/Users/ikhab/images/sample.webm ")) {
+    try (OutputStream stream = new FileOutputStream("C:/Users/ikhab/images/" + id + ".webm ")) {
       stream.write(data);
     }
+    User user = userService.getById(id);
+    user.setPathToVideo("C:/Users/ikhab/images/" + id + ".webm ");
+    userService.update(user);
   }
 }

@@ -17,4 +17,7 @@ public class User extends BaseEntity {
   @ManyToOne
   @JoinColumn(name = "vacancy_id")
   private Vacancy vacancy;
+
+  @Column(name = "video")
+  private String pathToVideo;
 }
