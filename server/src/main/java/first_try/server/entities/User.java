@@ -8,9 +8,9 @@ import lombok.Data;
 @Entity
 @Table(name = "admins")
 @Data
-public class Admin extends BaseEntity {
-  @Column(name = "login")
-  private String login;
+public class User extends BaseEntity {
+  @Column(name = "username")
+  private String username;
 
   @Column(name = "password")
   private String password;
