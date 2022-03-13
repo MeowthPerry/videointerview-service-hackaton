@@ -1,13 +1,10 @@
 package first_try.server.dto;
 
 import first_try.server.entities.User;
+import lombok.Data;
 
+@Data
 public class UserDto {
   private String username;
-
-  public User toUser() {
-    User user = new User();
-    user.setUsername(username);
-    return user;
-  }
+  private Long vid;
 }

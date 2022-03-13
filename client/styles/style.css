@@ -34,10 +34,14 @@ header{
     font-size: 32px;
 }
 
-main{
+main, .admin_main{
     margin: auto;
     max-width: 1000px;
     padding: 50px;
+}
+
+.admin_main_section{
+    margin-top: 30px;
 }
 
 .interview-content{
@@ -139,6 +143,10 @@ select{
     text-align: center;
 }
 
+h1{
+    font-size: 32px;
+}
+
 .style1{
     background-color: white;
     color: black;
@@ -186,6 +194,25 @@ select{
     text-align: center;
     margin-top: 50px;
 
+}
+
+.add-button{
+    width: 280px;
+    padding: 10px;
+    background-color: white;
+    font-size: 24px;
+    border-color: black;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.add-button:hover{
+    background-color: rgb(126, 40 , 245);
+    color: white;
+}
+
+select{
+    border-width: 2px;
 }
 
 .findBox input{

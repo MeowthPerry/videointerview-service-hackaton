@@ -17,15 +17,12 @@ public class AdminFilter implements Filter {
   private String key = "secret";
 
   @Override
-  public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-      FilterChain filterChain) throws IOException, ServletException {
-    HttpServletRequest request = (HttpServletRequest) servletRequest;
+  public void doFilter(
+      ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
+      throws IOException, ServletException {
     HttpServletResponse response = (HttpServletResponse) servletResponse;
-    log.info(request.getHeader("Key"));
-    log.info(key);
-    if (request.getHeader("Key").equals(key))
-      filterChain.doFilter(servletRequest, servletResponse);
-    else
-      response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+    response.addHeader("Access-Control-Allow-Origin", "*");
+    response.addHeader("Access-Control-Allow-Headers", "*");
+    filterChain.doFilter(servletRequest, servletResponse);
   }
 }

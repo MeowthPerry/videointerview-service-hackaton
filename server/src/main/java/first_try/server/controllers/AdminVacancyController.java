@@ -5,6 +5,7 @@ import first_try.server.entities.Vacancy;
 import first_try.server.services.VacancyService;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/admin/vacancy/")
+@RequestMapping("/api/admin/vacancy")
 public class AdminVacancyController {
   @Autowired private VacancyService vacancyService;
 
@@ -22,12 +23,15 @@ public class AdminVacancyController {
   }
 
   @PostMapping
-  public void save(HttpServletRequest request, @RequestBody VacancyDto vacancyDto) {
-    vacancyService.save(vacancyDto.toVacancy());
+  public void save(@RequestBody VacancyDto vacancyDto) {
+    Vacancy vacancy = new Vacancy();
+    log.info(vacancyDto.toString());
+    vacancy.setName(vacancyDto.getName());
+    vacancyService.save(vacancy);
   }
 
   @DeleteMapping("{id}")
-  public void delete(HttpServletRequest request, @PathVariable Long id) {
+  public void delete(@PathVariable Long id) {
     vacancyService.delete(id);
   }
 }

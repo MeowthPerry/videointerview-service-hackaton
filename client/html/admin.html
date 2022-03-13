@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="../scripts/adminGet.js" defer></script>
+</head>
+<body>
+<header>
+  <img src="../images/logo.png" alt="login img" class="header__logo">
+  <p class="header__user-name">
+    HR-Manager
+  </p>
+</header>
+<main class="admin_main">
+  <section>
+    <h1>Добавить пользователя</h1>
+    <form action="" name="add-user" class="add-user_form">
+      <input type="text" name="userName" placeholder="ФИО">
+      <select class="selector">
+        <option value="id" selected disabled>Позиция</option>
+      </select>
+      <button class="add-user-button add-button">Добавить</button>
+    </form>
+  </section>
+  <section class="admin_main_section">
+    <h1>Добавить Вакансию</h1>
+    <form action="" name="add-vacancy" class="add-user_form">
+      <input type="text" name="vacancyName" placeholder="Название позиции">
+      <button class="add-vacancy-button add-button">Добавить</button>
+    </form>
+  </section>
+  <section class="admin_main_section">
+    <h1>Добавить Вопросы к вакансии</h1>
+    <form action="" name="add-question" class="add-user_form">
+      <select class="selector">
+        <option value="id" selected disabled>Позиция</option>
+      </select>
+      <input type="text" name="questionText" placeholder="Вопрос">
+      <button class="add-question-button add-button">Добавить</button>
+    </form>
+  </section>
+</main>
+</body>
+</html>

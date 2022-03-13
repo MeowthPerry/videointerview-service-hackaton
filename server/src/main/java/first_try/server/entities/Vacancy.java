@@ -17,7 +17,7 @@ public class Vacancy extends BaseEntity {
   private String name;
 
   @JsonIgnore
-  @OneToMany(mappedBy = "vacancy", fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "vacancy")
   private List<User> users;
 
   @OneToMany(mappedBy = "vacancy")
