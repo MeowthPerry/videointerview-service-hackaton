@@ -6,11 +6,7 @@ import first_try.server.services.QuestionService;
 import first_try.server.services.VacancyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -24,5 +20,17 @@ public class AdminQuestionController {
     Question question = questionDto.toQuestion();
     question.setVacancy(vacancyService.findById(id));
     questionService.save(question);
+  }
+
+  @PutMapping
+  public void update(@PathVariable Long id, @RequestBody QuestionDto questionDto) {
+    Question question = questionDto.toQuestion();
+    question.setVacancy(vacancyService.findById(id));
+    questionService.update(question);
+  }
+
+  @DeleteMapping
+  public void delete(@PathVariable Long id) {
+    questionService.delete(id);
   }
 }
