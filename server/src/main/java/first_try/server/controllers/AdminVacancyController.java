@@ -26,11 +26,6 @@ public class AdminVacancyController {
     vacancyService.save(vacancyDto.toVacancy());
   }
 
-  @PutMapping
-  public void update(HttpServletRequest request, @RequestBody VacancyDto vacancyDto) {
-    vacancyService.update(vacancyDto.toVacancy());
-  }
-
   @DeleteMapping("{id}")
   public void delete(HttpServletRequest request, @PathVariable Long id) {
     vacancyService.delete(id);
