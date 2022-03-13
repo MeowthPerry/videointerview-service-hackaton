@@ -23,16 +23,14 @@ public class AdminQuestionController {
   }
 
   @PutMapping
-  public void update(@PathVariable Long id, @RequestBody QuestionDto questionDto)
-  {
+  public void update(@PathVariable Long id, @RequestBody QuestionDto questionDto) {
     Question question = questionDto.toQuestion();
     question.setVacancy(vacancyService.findById(id));
     questionService.update(question);
   }
 
   @DeleteMapping
-  public void delete(@PathVariable Long id)
-  {
+  public void delete(@PathVariable Long id) {
     questionService.delete(id);
   }
 }

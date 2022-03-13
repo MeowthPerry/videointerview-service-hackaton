@@ -32,8 +32,7 @@ public class AdminVacancyController {
   }
 
   @DeleteMapping("{id}")
-  public void delete(HttpServletRequest request, @PathVariable Long id)
-  {
+  public void delete(HttpServletRequest request, @PathVariable Long id) {
     vacancyService.delete(id);
   }
 }
