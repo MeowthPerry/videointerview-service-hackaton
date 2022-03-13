@@ -1,9 +1,9 @@
-insert into vacancies(name) values(
+insert into vacancies(name) values
 	('C# разработчик'),
 	('Java разработчик')
-);
+;
 
-insert into questions(vacancy_id, data) values(
+insert into questions(vacancy_id, data) values
 	(1, 'Сколько лет занимаетесь C# разработкой?'),
 	(1, 'Есть ли у Вас высшее образование?'),
 	(1, 'Имеются ли у Вас опыт во фронтренде?'),
@@ -14,4 +14,4 @@ insert into questions(vacancy_id, data) values(
 	(2, 'Назовите основные принципы ООП'),
 	(2, 'Знакомы ли Вы с паттернами разработки?'),
 	(2, 'Есть ли у Вас опыт разработки мобильных приложений на Java?')
-);
+;
