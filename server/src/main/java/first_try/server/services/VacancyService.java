@@ -21,4 +21,8 @@ public class VacancyService {
   public void save(Vacancy vacancy) {
     vacancyRepository.save(vacancy);
   }
+
+  public void update(Vacancy vacancy) { vacancyRepository.save(vacancy); }
+
+  public void delete(Long id) { vacancyRepository.deleteById(id); }
 }
