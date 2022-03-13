@@ -17,22 +17,6 @@ var promise = fetch('http://127.0.0.1:8080/api/candidate/1', {
     console.log('error', error)
 })
 
-// const responseData = promise.then((data) => {return data});
-
-const responseData = {
-    name: 'Имя Из Ответа',
-    vacancy: 'Senior HTML language programmer',
-    questions: [
-        'Сколько вам лет?',
-        'Как вас зовут?',
-        'какую вы хотите зарплату?',
-        'Расскажите про ваш опыт работы',
-        'Что вы думаете о компьютерах?',
-        'Вам нравится зеленый цвет?',
-        'Сколько лет вы занимаетесь разработкой? (включая обучение)',
-        'Какие проекты вы реализовали?',
-        'Чай или кофе?'
-    ]
-};
+const responseData = promise.then((data) => {return data});
 
 export { responseData };

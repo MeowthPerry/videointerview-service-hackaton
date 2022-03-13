@@ -1,11 +1,19 @@
 import {responseData} from './data.js';
 
-const questions = responseData.questions;
-const userName = responseData.name;
-const vacancyName = responseData.vacancy;
+let array = responseData.then( function (result) {
+    document.querySelector('.header__user-name').textContent = result.name;
+    document.querySelector('.vacancy-name_span').textContent = result.vacancy;
+    const questions = result.questions;
 
-document.querySelector('.header__user-name').textContent = userName;
-document.querySelector('.vacancy-name_span').textContent = vacancyName;
+    const questionsInserter = (questions) => {
+        for (let i = 0; i < questions.length; i++) {
+            const tag = questionCreator(questions[i]);
+            questionList.appendChild(tag);
+        }
+    };
+    questionsInserter(questions);
+    bolderText(questionList);
+});
 
 const questionList = document.querySelector('.interview-content-questions');
 const nextButton = document.querySelector('#next');
@@ -19,22 +27,18 @@ const questionCreator = (item) => {
     return tag;
 };
 
-const questionsInserter = (questions) => {
-    for (let i = 0; i < questions.length; i++) {
-        const tag = questionCreator(questions[i]);
-        questionList.appendChild(tag);
-    }
-};
-
 const bolderText = (parent) => {
     const items = parent.querySelectorAll('p')
     items[0].classList.add('active');
 };
 
-
 startButton.addEventListener('click', () => {
     startButton.classList.add('hidden');
     nextButton.classList.remove('hidden');
+    const message = new SpeechSynthesisUtterance();
+    message.lang = "ru-RU";
+    message.text = questionList.children[0].textContent;
+    window.speechSynthesis.speak(message);
 });
 
 nextButton.addEventListener('click', () => {
@@ -43,20 +47,28 @@ nextButton.addEventListener('click', () => {
         bolderText(questionList);
         nextButton.classList.add('hidden');
         stopButton.classList.remove('hidden');
+        const message = new SpeechSynthesisUtterance();
+        message.lang = "ru-RU";
+        message.text = questionList.children[0].textContent;
+        window.speechSynthesis.speak(message);
     } else {
         questionList.children[0].remove();
         bolderText(questionList);
+        const message = new SpeechSynthesisUtterance();
+        message.lang = "ru-RU";
+        message.text = questionList.children[0].textContent;
+        window.speechSynthesis.speak(message);
     }
 });
 
 stopButton.addEventListener('click', () => {
-    questionList.children[0].textContent = `Спасибо за интервью!
+    const text = `Спасибо за интервью!
     Мы с Вами свяжемся!`;
+    questionList.children[0].textContent = text;
     bolderText(questionList);
+    const message = new SpeechSynthesisUtterance();
+    message.lang = "ru-RU";
+    message.text = text;
+    window.speechSynthesis.speak(message);
     stopButton.classList.add('hidden');
 });
-
-questionsInserter(questions);
-
-bolderText(questionList);
-

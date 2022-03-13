@@ -1,12 +1,12 @@
 package first_try.server.controllers;
 
-import first_try.server.entities.Candidate;
 import first_try.server.services.CandidateService;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -35,7 +35,8 @@ public class CandidateController {
     Candidate candidate = candidateService.getById(id);
     map.put("name", candidate.getName());
     map.put("vacancy", candidate.getVacancy().getName());
-    map.put("questions", candidate.getVacancy().getQuestions());
+    map.put("questions", candidate.getVacancy().getQuestions().stream().map(question -> {return question.getContent();}).collect(
+        Collectors.toList()));
     return ResponseEntity.ok(map);
   }
 

@@ -15,6 +15,6 @@ public class File extends BaseEntity {
   private String path;
 
   @ManyToOne
-  @JoinColumn(name = "candidate_id", nullable = false)
-  private Candidate candidate;
+  @JoinColumn(name = "user_id", nullable = false)
+  private User user;
 }

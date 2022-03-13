@@ -23,7 +23,7 @@ navigator.mediaDevices.getUserMedia({ audio: true, video: true})
             // console.log(mediaRecorder.mimeType)
             reader.onloadend = function () {
                 let videoData = reader.result;
-                fetch('http://127.0.0.1:8080/api/candidate/save', {
+                fetch('http://127.0.0.1:8080/api/candidate/1/save', {
                     method: 'post',
                     body: videoData
                 })
