@@ -4,7 +4,10 @@ import first_try.server.dto.UserDto;
 import first_try.server.entities.User;
 import first_try.server.services.UserService;
 import first_try.server.services.VacancyService;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +25,17 @@ public class AdminUserController {
   @Autowired private VacancyService vacancyService;
 
   @GetMapping
-  public List<User> getAll(HttpServletResponse response) {
-    return userService.getAll();
+  public List<Map<Object, Object>> getAll(HttpServletResponse response) {
+    List<Map<Object, Object>> users = new ArrayList<>();
+    userService.getAll().forEach(user -> {
+      Map<Object, Object> tmp = new HashMap<>();
+      tmp.put("id", user.getId());
+      tmp.put("username", user.getUsername());
+      tmp.put("vacancy", user.getVacancy().getName());
+      tmp.put("url", user.getPathToVideo());
+      users.add(tmp);
+    });
+    return users;
   }
 
   @PostMapping

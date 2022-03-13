@@ -42,7 +42,7 @@ public class UserController {
     request = request.substring(37);
     log.info(request);
     byte[] data = Base64.decodeBase64(request);
-    try (OutputStream stream = new FileOutputStream("C:/Users/ikhab/images/" + id + ".webm ")) {
+    try (OutputStream stream = new FileOutputStream("C:/Users/ikhab/images/" + id + ".webm")) {
       stream.write(data);
     }
     User user = userService.getById(id);
